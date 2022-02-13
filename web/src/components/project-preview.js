@@ -1,4 +1,4 @@
-import * as styles from "./blog-post-preview.module.css";
+import * as styles from "./project-preview.module.css";
 import { buildImageObj, cn, getBlogUrl } from "../lib/helpers";
 import { Link } from "gatsby";
 import PortableText from "./portableText";
@@ -8,7 +8,7 @@ import { imageUrlFor } from "../lib/image-url";
 
 import { responsiveTitle3 } from "./typography.module.css";
 
-function BlogPostPreview(props) {
+function ProjectPreview(props) {
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
@@ -34,11 +34,11 @@ function BlogPostPreview(props) {
           </div>
         )}
         <div className={styles.date}>
-          {format(new Date(props.publishedAt), "MMMM Mo, yyyy")}
+          Completed Date: {format(new Date(props.publishedAt), "MMMM Mo, yyyy")}
         </div>
       </div>
     </Link>
   );
 }
 
-export default BlogPostPreview;
+export default ProjectPreview;

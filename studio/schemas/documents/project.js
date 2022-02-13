@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 
 export default {
-  name: "post",
+  name: "project",
   type: "document",
-  title: "Blog Post",
+  title: "Recent Project",
   fields: [
     {
       name: "title",
@@ -16,7 +16,7 @@ export default {
       type: "slug",
       title: "Slug",
       description:
-        "Some frontends will require a slug to be set to be able to show the post",
+        "Some frontends will require a slug to be set to be able to show the project",
       options: {
         source: "title",
         maxLength: 96,
@@ -26,7 +26,7 @@ export default {
       name: "publishedAt",
       type: "datetime",
       title: "Published at",
-      description: "This can be used to schedule post for publishing",
+      description: "This can be used to schedule project for publishing",
     },
     {
       name: "mainImage",
@@ -38,7 +38,7 @@ export default {
       type: "excerptPortableText",
       title: "Excerpt",
       description:
-        "This ends up on summary pages, on Google, when people share your post in social media.",
+        "This ends up on summary pages, on Google, when people share your project in social media.",
     },
     {
       name: "authors",

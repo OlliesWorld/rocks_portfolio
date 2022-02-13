@@ -9,7 +9,7 @@ import styles from "./IframePreview.module.css";
  * https://www.sanity.io/blog/evolve-authoring-experiences-with-views-and-split-panes
  */
 
-const assemblePostUrl = ({ displayed, options }) => {
+const assembleProjectUrl = ({ displayed, options }) => {
   const { slug, publishedAt } = displayed;
   const { previewURL } = options;
   if (!slug || !previewURL) {
@@ -33,7 +33,7 @@ const IframePreview = (props) => {
     );
   }
 
-  const url = assemblePostUrl({ displayed, options });
+  const url = assembleProjectUrl({ displayed, options });
 
   if (!url) {
     return (

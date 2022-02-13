@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import BlogPost from "../components/blog-post";
+import Project from "../components/project";
 import React from "react";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Layout from "../containers/layout";
@@ -8,8 +8,8 @@ import SEO from "../components/seo";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
-    post: sanityPost(id: { eq: $id }) {
+  query ProjectTemplateQuery($id: String!) {
+    project: sanityProject(id: { eq: $id }) {
       id
       publishedAt
       categories {
@@ -57,17 +57,17 @@ export const query = graphql`
   }
 `;
 
-const BlogPostTemplate = (props) => {
+const ProjectTemplate = (props) => {
   const { data, errors } = props;
-  const post = data && data.post;
+  const project = data && data.project;
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
-      {post && (
+      {project && (
         <SEO
-          title={post.title || "Untitled"}
-          description={toPlainText(post._rawExcerpt)}
-          image={post.mainImage}
+          title={project.title || "Untitled"}
+          description={toPlainText(project._rawExcerpt)}
+          image={project.mainImage}
         />
       )}
 
@@ -77,9 +77,9 @@ const BlogPostTemplate = (props) => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {project && <Project {...project} />}
     </Layout>
   );
 };
 
-export default BlogPostTemplate;
+export default ProjectTemplate;

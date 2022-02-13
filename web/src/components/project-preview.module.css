@@ -2,9 +2,10 @@
 @import '../styles/custom-properties.css';
 
 .root {
-  display: block;
+  /* display: block; */
   color: inherit;
   text-decoration: none;
+ 
 }
 
 .inList {
@@ -22,12 +23,12 @@
 }
 
 .leadMediaThumb {
-  position: relative;
-  padding-bottom: 66.666%;
-  background: var(--color-very-light-gray);
-
+  /* position: relative; */
+  /* padding-bottom: 6.666%; */
+  /* background: var(--color-very-light-gray); */
+  margin-bottom: 2%;
   @nest & img {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;

@@ -7,11 +7,11 @@ const { isFuture } = require("date-fns");
 
 const { format } = require("date-fns");
 
-async function createBlogPostPages(graphql, actions) {
+async function createProjectPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityPost(
+      allSanityProject(
         filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
       ) {
         edges {
@@ -29,9 +29,9 @@ async function createBlogPostPages(graphql, actions) {
 
   if (result.errors) throw result.errors;
 
-  const postEdges = (result.data.allSanityPost || {}).edges || [];
+  const projectEdges = (result.data.allSanityProject || {}).edges || [];
 
-  postEdges
+  projectEdges
     .filter((edge) => !isFuture(new Date(edge.node.publishedAt)))
     .forEach((edge) => {
       const { id, slug = {}, publishedAt } = edge.node;
@@ -40,12 +40,12 @@ async function createBlogPostPages(graphql, actions) {
 
       createPage({
         path,
-        component: require.resolve("./src/templates/blog-post.js"),
+        component: require.resolve("./src/templates/project.js"),
         context: { id },
       });
     });
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions);
+  await createProjectPages(graphql, actions);
 };

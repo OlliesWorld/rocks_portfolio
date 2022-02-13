@@ -1,4 +1,4 @@
-import * as styles from "./blog-post.module.css";
+import * as styles from "./project.module.css";
 import { differenceInDays, formatDistance, format } from "date-fns";
 import AuthorList from "./author-list";
 import Container from "./container";
@@ -7,7 +7,7 @@ import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-function BlogPost(props) {
+function Project(props) {
   const {
     _rawBody,
     authors,
@@ -63,4 +63,4 @@ function BlogPost(props) {
   );
 }
 
-export default BlogPost;
+export default Project;
